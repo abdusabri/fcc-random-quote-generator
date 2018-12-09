@@ -11,7 +11,7 @@ class QuotesContainer extends Component {
         return (
             <div>
                 <QuoteCard quoteText={this.state.quoteText}
-                    quoteAuthor={this.state.quoteText}/>
+                    quoteAuthor={this.state.quoteAuthor}/>
             </div>
         );
     }
