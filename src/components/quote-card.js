@@ -19,21 +19,29 @@ const QuoteCard = ({ quoteText, quoteAuthor, classes}) => {
                 //     content: classes.cardHeaderContent
                 // }}
                 subheader={
-                    <Button variant="outlined" color="primary">
+                    <Button id="new-quote" variant="outlined" color="primary">
                         Generate Quote
                     </Button>
                 } />
             <Divider/>
             <CardContent>
-                {quoteText}
+                <span id="text">
+                    {quoteText}
+                </span>
                 <br/>
-                {quoteAuthor}
+                <span id="author">
+                    {quoteAuthor}
+                </span>
             </CardContent>
             <Divider />
             <CardActions>
-                <IconButton aria-label="Tweet">
-                    <Twitter />
-                </IconButton>
+                <a id="tweet-quote"
+                    href={`https://twitter.com/intent/tweet?text="${quoteText}" by ${quoteAuthor}`}
+                    target="blank">
+                    <IconButton aria-label="Tweet Quote">
+                        <Twitter />
+                    </IconButton>
+                </a>
             </CardActions>
         </Card>
     );
