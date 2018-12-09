@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import QuoteCard from './quote-card';
 
 class QuotesContainer extends Component {
     state = {
@@ -9,9 +10,8 @@ class QuotesContainer extends Component {
     render() {
         return (
             <div>
-                {this.state.quoteText}
-                <br/>
-                {this.state.quoteAuthor}
+                <QuoteCard quoteText={this.state.quoteText}
+                    quoteAuthor={this.state.quoteText}/>
             </div>
         );
     }
