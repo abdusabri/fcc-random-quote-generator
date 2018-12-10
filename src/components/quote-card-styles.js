@@ -3,8 +3,12 @@ export const quoteCardStyles = theme => ({
         width: 600,
         // minHeight: 300
     },
-    cardHeaderContent: {
-        display: 'flex',
-        justifyContent: 'center'
+    // cardHeaderContent: {
+    //     display: 'flex',
+    //     justifyItems: 'center',
+    //     justifyContent: 'center'
+    // },
+    progress: {
+        marginLeft: theme.spacing.unit * 2,
     }
   });
