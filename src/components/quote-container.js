@@ -4,8 +4,8 @@ import { getQuote } from '../api/quotes-api';
 
 class QuoteContainer extends Component {
     state = {
-        quoteText: "Quote Text",
-        quoteAuthor: "Author",
+        quoteText: "",
+        quoteAuthor: "",
         isLoading: true
     }
 
