@@ -4,9 +4,10 @@ import { getQuote } from '../api/quotes-api';
 
 class QuoteContainer extends Component {
     state = {
-        quoteText: "",
-        quoteAuthor: "",
-        isLoading: true
+        quoteText: '',
+        quoteAuthor: '',
+        isLoading: true,
+        isError: false
     }
 
     async componentDidMount() {
@@ -17,11 +18,19 @@ class QuoteContainer extends Component {
         this.setState({ isLoading: true });
 
         const data = await getQuote();
-        if (data !== "error") 
+        if (data !== "error") {
             this.setState({ 
                 quoteText: data.quoteText,
-                quoteAuthor: data.quoteAuthor
-             });
+                quoteAuthor: data.quoteAuthor,
+                isError: false
+            });
+        } else {
+            this.setState({ 
+                quoteText: '',
+                quoteAuthor: '',
+                isError: true
+            });
+        }
 
         this.setState({ isLoading: false });
     }
@@ -30,8 +39,9 @@ class QuoteContainer extends Component {
         return (
             <QuoteCard quoteText={this.state.quoteText}
                 quoteAuthor={this.state.quoteAuthor}
-                isLoading={this.state.isLoading} 
-                onGenerateQuote={this.generateQuote}/>
+                isLoading={this.state.isLoading}
+                onGenerateQuote={this.generateQuote}
+                isError={this.state.isError}/>
         );
     }
 }
