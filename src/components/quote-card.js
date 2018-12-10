@@ -12,17 +12,14 @@ import { Twitter } from 'mdi-material-ui';
 import { withStyles } from '@material-ui/core/styles';
 import { quoteCardStyles } from './quote-card-styles';
 
-const QuoteCard = ({ quoteText, quoteAuthor, classes, isLoading }) => {
+const QuoteCard = ({ quoteText, quoteAuthor, classes, isLoading, onGenerateQuote }) => {
     return (
         <Card className={classes.card}>
             <CardHeader
-                // classes={{
-                //     content: classes.cardHeaderContent
-                // }}
                 subheader={
                     <div style={{display: 'flex', justifyItems: 'left', justifyContent: 'left'}}>
                         <Button id="new-quote" variant="outlined" color="primary"
-                            disabled={isLoading} >
+                            disabled={isLoading} onClick={onGenerateQuote} >
                             Generate Quote
                         </Button>
                         {isLoading && <CircularProgress className={classes.progress} />}
@@ -55,7 +52,8 @@ const QuoteCard = ({ quoteText, quoteAuthor, classes, isLoading }) => {
 QuoteCard.propTypes = {
     quoteText: PropTypes.string.isRequired,
     quoteAuthor: PropTypes.string.isRequired,
-    isLoading: PropTypes.bool.isRequired
+    isLoading: PropTypes.bool.isRequired,
+    onGenerateQuote: PropTypes.func.isRequired
     // Classes
 }
 
