@@ -37,15 +37,19 @@ const QuoteCard = ({ quoteText, quoteAuthor, classes, isLoading, onGenerateQuote
                         </span>
                     </Paper>
                 }
-                {quoteText && <FormatQuoteOpen />}
-                <span id="text">
-                    {quoteText}
-                </span>
-                {quoteText && <FormatQuoteClose />}
-                <br/>
-                <span id="author" style={{marginTop: '1em', display: 'block'}}>
-                    {quoteAuthor}
-                </span>
+                {!isError &&
+                    <React.Fragment>
+                        {quoteText && <FormatQuoteOpen />}
+                        <span id="text">
+                            {quoteText}
+                        </span>
+                        {quoteText && <FormatQuoteClose />}
+                        <br/>
+                        <span id="author" style={{marginTop: '1em', display: 'block'}}>
+                            {quoteAuthor}
+                        </span>
+                    </React.Fragment>
+                }
             </CardContent>
             <Divider />
             <CardActions>
